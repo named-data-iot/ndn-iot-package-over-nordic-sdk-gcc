@@ -1,8 +1,7 @@
 #include "stdio.h"
 #include "string.h"
-#include "platform/system.h"
-#include "platform/flash.h"
-#include "../../ndn-enums.h"
+#include "alarm-adaptation/system.h"
+#include "flash-storage/flash.h"
 
 static uint32_t address = 0;
 static uint32_t data = 12345;

@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "platform/system.h"
+#include "alarm-adaptation/system.h"
 
 int main()
 {
