@@ -1,0 +1,10 @@
+
+SRC_PATH = $(LIBBASE)/src
+
+TOOLCHAIN_PATH = $(LIBBASE)/toolchain
+
+THIRD_PARTY_PATH = $(LIBBASE)/third-party
+
+ADAPTATION_PATH = $(LIBBASE)/adaptation
+
+include $(TOOLCHAIN_PATH)/$(BOARD)/Makefile.include
