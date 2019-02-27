@@ -19,21 +19,25 @@ So far, we have tested our library with [RIOT OS](https://www.riot-os.org/) and 
 We also provides related adaptation implementation under `./adaptation/`
 
 
-About This Branch
+About This Repository
 -------------------------------------
 
-This branch provides basic support on nRF52840DK periph drivers and their hardware abstraction. Examples of their usage are also included. Examples are only tested on macOS, might work on Linux. The implementation is based on Nordic SDK v15.2.0 and borrows some code from [RIOT OS](https://www.riot-os.org/) on board flashing.
+This Repository provides basic support on nRF52840DK peripheral drivers and their hardware abstraction.
+Examples of their usage are also included.
+Examples are only tested on macOS, might work on Linux. The implementation is based on Nordic SDK v15.2.0 and borrows some code from [RIOT OS](https://www.riot-os.org/) on board flashing.
 
 ### Motivation ###
 
-- Limitation of Current NDN Lite \
- Current NDN Lite is not a real standalone library but more like a development helper for third party IDEs. This is because NDN Lite only do implementation, and leaves the job of organizing dependencies to users. However, in NDN Lite's adaptation layer, specific modules may be coupled with each others or require delicate macros and dependencies configuration. Users have no idea how to configure these dependencies unless looking into code/doc of both NDN Lite and vendor SDKs, which is inconvenient and time consuming. Therefore, SDK dependencies issue should be handled inside of NDN Lite.
+- Providing NDN-Lite based IoT package \
+ NDN Lite is the implementation of the core NDN network stack and NDN-based application support, but without the platform-specific adaptation, leaves the job of organizing dependencies to users.
+ This repository provides an IoT package especially for NDN application development over Nordic SDK using GCC.
 
-- What This Branch Does: Easy to Use \
- This branch includes all needed SDKs in folder ```third-party``` and configures them in folder ```toolchain``` according to platforms. Therefore, users can focus on application.
+- Ease-of-Use \
+ This repo includes all needed SDKs in folder ```third-party``` and configures them in folder ```toolchain```.
+ Therefore, users can focus on application development.
 
-- What This Branch Does: Platform Feature \
- This branch provides hardware abstraction for periph drivers and will continouly updating it.
+- Platform Features are provided \
+ This repo provides hardware abstraction for peripheral drivers in Nordic NRF52 platforms and will be maintained by the NDN IoT development team.
 
 ### Usage ###
 Try hello world example, which shows the usage of system delay and time function.
