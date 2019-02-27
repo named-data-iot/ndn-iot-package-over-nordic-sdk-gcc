@@ -102,7 +102,7 @@ Try hello world example, which shows the usage of system delay and time function
   * Software Dependencies: nRF-IEEE-802.15.4-driver (Radio module in future)
   * Features: Milliseconds and microseconds time and alarm notification system. This module only support one alarm in runtime. And users should periodically check whether the alarm fires.
 
-- UART
+- UART (Removed)
   * Hardware Dependencies: UART0
   * Software Dependencies: None
   * Features: Data exchange via serial port.
@@ -119,7 +119,7 @@ Try hello world example, which shows the usage of system delay and time function
 
 - Sensor
 
-### Porting Other Platforms to This Branch ##
+### Porting Other Platforms to This Repository ##
 - SDK Inclusion
   * Add third party SDKs in folder ```third-party```. Please only include necessary files you need, whole SDK package might be very large.
 
