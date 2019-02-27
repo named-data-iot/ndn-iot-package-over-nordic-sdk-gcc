@@ -6,7 +6,7 @@
  * directory for more details.
  */
 
-#include "alarm.h"
+#include "forwarder/common/ndn-lite-alarm.h"
 #include "nrf-alarm-config.h"
 
 #include "nrf.h"
@@ -451,7 +451,7 @@ void nrf5_alarm_process(void* instance)
         {
             timer_data[ms_timer].fire = false;
             {
-                ndn_platform_alarm_millis_fire(instance);
+                ndn_alarm_millis_fire(instance);
             }
         }
 
@@ -464,7 +464,7 @@ void nrf5_alarm_process(void* instance)
     } while (event_pending);
 }
 
-void ndn_platform_alarm_process(void* instance) {
+void ndn_alarm_process(void* instance) {
     nrf5_alarm_process(instance);
 }
 
@@ -475,32 +475,33 @@ static inline uint64_t alarm_get_current_time(void)
 
 
 /* APIs */
-void ndn_platform_alarm_init(void)
+void ndn_alarm_init(void)
 {
+  nrf_drv_clock_init();
   nrf5_alarm_init();
 }
 
-void ndn_platform_alarm_deinit(void)
+void ndn_alarm_deinit(void)
 {
   nrf5_alarm_deinit();
 }
 
-uint64_t ndn_platform_alarm_millis_get_now(void)
+uint64_t ndn_alarm_millis_get_now(void)
 {
     return (get_current_time(us_timer)/ US_PER_MS);
 }
 
-uint64_t ndn_platform_alarm_micros_get_now(void)
+uint64_t ndn_alarm_micros_get_now(void)
 {
     return get_current_time(us_timer);
 }
 
-void ndn_platform_alarm_millis_stop(void)
+void ndn_alarm_millis_stop(void)
 {
     alarm_stop(ms_timer);
 }
 
-void ndn_platform_alarm_millis_start(uint32_t start, uint32_t delta)
+void ndn_alarm_millis_start(uint32_t start, uint32_t delta)
 {
     alarm_start(start, delta, ms_timer);
 }

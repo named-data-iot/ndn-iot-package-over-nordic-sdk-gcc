@@ -6,4 +6,4 @@ BOARD ?= nrf52840
 # This has to be the absolute path to the NDN Lite base directory:
 LIBBASE ?= $(CURDIR)/../..
 
-include $(LIBBASE)/Makefile.include
+include $(LIBBASE)/Makefile.top

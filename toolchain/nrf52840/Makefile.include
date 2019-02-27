@@ -53,7 +53,7 @@ SRC_FILES += \
 	$(SDK_ROOT)/SEGGER_RTT_V640/RTT/SEGGER_RTT_printf.c \
 	$(SDK_ROOT)/SEGGER_RTT_V640/RTT/SEGGER_RTT.c \
 	$(SDK_ROOT)/dependencies/app_util_platform.c \
-	$(ADAPTATION_PATH)/alarm-adaptation/alarm.c \
+	$(ADAPTATION_PATH)/alarm-adaptation/ndn-lite-alarm.c \
   $(ADAPTATION_PATH)/flash-storage/flash.c \
 	$(ADAPTATION_PATH)/alarm-adaptation/system.c \
 	$(PROJ_DIR)/main.c \
@@ -82,8 +82,8 @@ INC_FOLDERS += \
   $(SDK_ROOT)/libraries/usbd \
 	$(SDK_ROOT)/SEGGER_RTT_V640/RTT/ \
 	$(SDK_ROOT)/SEGGER_RTT_V640/Syscalls \
-  $(ADAPTATION_PATH)/alarm-adapatation \
 	$(ADAPTATION_PATH) \
+  $(SRC_PATH) \
 
 # Libraries common to all targets
 LIB_FILES += \

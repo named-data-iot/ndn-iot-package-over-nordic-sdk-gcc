@@ -1,5 +1,5 @@
 
-SRC_PATH = $(LIBBASE)/src
+SRC_PATH = $(LIBBASE)/ndn-lite
 
 TOOLCHAIN_PATH = $(LIBBASE)/toolchain
 

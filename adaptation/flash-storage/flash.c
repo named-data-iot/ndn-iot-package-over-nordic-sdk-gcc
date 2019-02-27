@@ -43,7 +43,7 @@ uint32_t nrf5_flash_write(uint32_t address, uint8_t* data_value, uint32_t data_s
 }
 
 /* APIS */
-int ndn_platform_flash_init(void)
+int ndn_flash_init(void)
 {
   extern uint32_t __start_plat_flash_data;
   extern uint32_t __stop_plat_flash_data;
@@ -58,20 +58,20 @@ int ndn_platform_flash_init(void)
   return NDN_PLAT_SUCCESS;
 }
 
-uint32_t ndn_platform_flash_get(void)
+uint32_t ndn_flash_get(void)
 {
   return flash_end - flash_start;
 }
 
-int ndn_platform_flash_erase(uint32_t address)
+int ndn_flash_erase(uint32_t address)
 {
-  if (address > ndn_platform_flash_get())
+  if (address > ndn_flash_get())
     return NDN_PLAT_FLASH_INVALID_ADDRESS;
 
   return nrf5_flash_erase(map(address & FLASH_PAGE_ADDR_MASK));
 }
 
-int ndn_platform_flash_status(void)
+int ndn_flash_status(void)
 {
   if (nrf5_flash_busy())
     return NDN_PLAT_FLASH_BUSY;
@@ -79,20 +79,20 @@ int ndn_platform_flash_status(void)
     return NDN_PLAT_FLASH_READY;
 }
 
-uint32_t ndn_platform_flash_write(uint32_t address, uint8_t* data_value, uint32_t data_size)
+uint32_t ndn_flash_write(uint32_t address, uint8_t* data_value, uint32_t data_size)
 {
   // Input check
-  if (data_value == NULL || address > ndn_platform_flash_get() ||
+  if (data_value == NULL || address > ndn_flash_get() ||
       data_size == 0)
     return NDN_PLAT_FLASH_WRITE_FAILURE;
 
   return nrf5_flash_write(map(address), data_value, data_size);
 }
 
-uint32_t ndn_platform_flash_read(uint32_t address, uint8_t* data_value, uint32_t data_size)
+uint32_t ndn_flash_read(uint32_t address, uint8_t* data_value, uint32_t data_size)
 {
   // Input check
-  if (data_value == NULL || address > ndn_platform_flash_get() ||
+  if (data_value == NULL || address > ndn_flash_get() ||
     data_size == 0)
    return NDN_PLAT_FLASH_READ_FAILURE;
 

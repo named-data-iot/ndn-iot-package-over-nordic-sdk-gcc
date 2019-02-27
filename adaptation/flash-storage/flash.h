@@ -27,7 +27,7 @@
   *
   * @return The size of the flash.
   */
- uint32_t ndn_platform_flash_get(void);
+ uint32_t ndn_flash_get(void);
 
  /**
   * This method erase one flash page that include the input address.
@@ -41,7 +41,7 @@
   * @return NDN_PLAT_SUCCESS if there is no error.
   * @return NDN_PLAT_FLASH_INVALID_ADDRESS if address is out of range of flash or not aligned.
   */
- int ndn_platform_flash_erase(uint32_t address);
+ int ndn_flash_erase(uint32_t address);
 
  /**
   * Check whether flash is ready or busy.
@@ -49,7 +49,7 @@
   * @return NDN_PLAT_FLASH_READY if flash is ready for any operation.
   * @return NDN_PLAT_FLASH_BUSY if flash is busy.
   */
- int ndn_platform_flash_status(void);
+ int ndn_flash_status(void);
 
  /**
   * Write flash. The write operation only clears bits, but never set bits.
@@ -64,7 +64,7 @@
   *
   * @return the actual size of octets write to flash.
   */
- uint32_t ndn_platform_flash_write(uint32_t address, uint8_t* data_value, uint32_t data_size);
+ uint32_t ndn_flash_write(uint32_t address, uint8_t* data_value, uint32_t data_size);
 
  /**
   * Read flash.
@@ -79,7 +79,7 @@
   *
   * @return the actual size of octets read to buffer.
   */
- uint32_t ndn_platform_flash_read(uint32_t address, uint8_t* data_value, uint32_t data_size);
+ uint32_t ndn_flash_read(uint32_t address, uint8_t* data_value, uint32_t data_size);
 
  #ifdef __cplusplus
  } // extern "C"

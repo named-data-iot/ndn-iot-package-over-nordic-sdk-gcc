@@ -6,21 +6,19 @@
  * directory for more details.
  */
 
-#include "alarm.h"
+#include "forwarder/common/ndn-lite-alarm.h"
 #include "system.h"
 
-#include "nrf_drv_clock.h"
 #include "nrf_delay.h"
 
 void ndn_platform_init(void)
 {
-  nrf_drv_clock_init();
-  ndn_platform_alarm_init();
+  ndn_alarm_init();
 }
 
 void ndn_platform_deinit(void)
 {
-  ndn_platform_alarm_deinit();
+  ndn_alarm_deinit();
 }
 
 void ndn_platform_delay_ms(uint32_t delay){
@@ -29,5 +27,5 @@ void ndn_platform_delay_ms(uint32_t delay){
 
 uint64_t ndn_platform_current_time(void)
 {
-  return ndn_platform_alarm_millis_get_now();
+  return ndn_alarm_millis_get_now();
 }
