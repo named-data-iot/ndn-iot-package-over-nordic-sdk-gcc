@@ -14,6 +14,7 @@
 #include "nrf_peripherals.h"
 #include "nrf_rtc.h"
 #include "nrf_drv_clock.h"
+#include "nrf_delay.h"
 #include "nrf_802154_utils.h"
 #include "nrf_802154_lp_timer.h"
 
@@ -504,6 +505,11 @@ void ndn_alarm_millis_stop(void)
 void ndn_alarm_millis_start(uint32_t start, uint32_t delta)
 {
     alarm_start(start, delta, ms_timer);
+}
+
+void ndn_alarm_delay(uint32_t delay)
+{
+    nrf_delay_ms(delay);
 }
 
 /**
